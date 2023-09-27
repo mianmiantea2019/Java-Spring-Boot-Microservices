@@ -1,0 +1,23 @@
+version: "3.2"
+services:
+  nacos:
+    image: nacos/nacos-server
+    environment:
+      MODE: standalone
+    ports:
+      - ""
+  mysql:
+    image: mysql:xxx
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+    volumes:
+      - "$PWD/mysql/data:/var/lib/mysql"
+      - "$PWD/mysql/conf:/etc/mysql/conf.d/"
+  userservice:
+    build: ./user-service
+  orderservice:
+    build: ./order-service
+  gateway:
+    build: ./gateway
+    ports:
+      - ""
