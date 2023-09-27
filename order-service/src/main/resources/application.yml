@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: 
+    password: 
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: orderservice # eureka
+  cloud:
+    nacos:
+      server-addr: nanos:8848
+      discovery:
+        cluster-name: HZ 
+mybatis:
+  type-aliases-package: com.cast.demo.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+feign:
+  client:
+    config:
+      default: 
+        loggerLevel: BASIC
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50 
